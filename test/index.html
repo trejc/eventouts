@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>FRI vremenkoti</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="stil.css" />
+	</head>
+	<body>
+		<header>
+			<div class="centered-content">
+				<a href="/"><img src="logo.png" alt="Logotip" /></a>
+				<span>FRI vremenkoti - društvo za računalniško vreme</span>
+				<div class="header-link"><a href="#popup">Prijava</a></div>
+                <div class="header-link"></div>
+                <div class="header-link"><a href="#popup">Registracija</a></div>
+			</div>
+		</header>
+		<div class="centered-content" id="main">
+			<nav>
+				<ul>
+					<li><a href="news.html">Novice</a></li>
+					<li id="meritve"><a href="measurements.html">Meritve</a></li>
+					<li><a href="download.html">Prenosi</a></li>
+					<li><a href="api.html">API</a></li>
+				</ul>
+			</nav>
+			<section>
+				<h1>Novice</h1>
+				<article>
+					<h2>Nove slike za RPI</h2>
+					<p>Na voljo so nove slike za odčitavanje vremena za Maline. Novosti so naslednje:</p>
+					<ul>
+						<li>Deluje tudi pozimi
+							<ul>
+								<li>Vrinjene for zanke 1 do 1000000 vsakih 5 vrstic kode, da se bolj greje in ne zmrzne.</li>
+								<li>Dodana podpora za Pi coat</li>
+							</ul>
+						</li>
+						<li>Popravljen hrošč pri prehodu na zimski čas</li>
+						<li>Porabi manj pomnilnika</li>
+					</ul>
+					<p>Objavil Matevž v <time datetime="2016-11-06">nedeljo, 6. novembra 2016</time>.</p>
+					<div class="comment">
+						<form method="POST" action="send_comment.html">
+							<label>Vaše ime:<input type="text" name="username" placeholder="ime priimek" pattern=".* .*" title="Vaše ime in priimek" required /></label>
+							<label>Vaš email:<input type="email" name="email" required /></label>
+							<label>Vaš komentar:<textarea name="comment" required ></textarea></label>
+							<label><input type="checkbox" style="display:none" required /><span>KLIK</span>.<div id="popup"><a href="#" style="float:right">x</a></br>Pozdravljen svet!<br/>Zunaj je danes sonce in mraz ko v pasic.</div></label>
+							<input id="gumb" type="submit" value="Pošlji!" />
+						</form>
+					</div>
+				</article>
+				<article>
+					<h2>Društveni piknik</h2>
+					<p>Vsi člani lepo vabljeni v petek, 13. novembra ob 18h v Sp. duplek na društveni piknik. Za jedačo in pijačo bo poskrbljeno. Gorenjci, pripeljite brata.</p>
+				</article>
+			</section>
+		</div>
+		<footer>
+			<div class="centered-content">
+				<a href="legal.html">Pravna obvestila</a> | 
+				<a href="authors.html">O avtorjih</a>
+			</div>
+		</footer>
+	</body>
+</html>

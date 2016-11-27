@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Eventouc</title>
+		<meta charset="utf-8" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&amp;subset=latin-ext" rel="stylesheet">
+		<link rel="stylesheet" href="styles/styles.css" />
+        <script type="text/javascript" src="scripts/maps.js"></script>
+        <script type="text/javascript" src="scripts/nov-dogodek.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTjb8_ki2loS2Q7aUNWP49QRR5i0mZY7E&callback=initMap"></script>
+    </head>
+    <body>
+        <header>
+            <div class="centered" id="logo">
+                <a href="index.html"><img src="logo.png" alt="Logotip" /></a>
+                <div class="header-link"><a href="registracija.html">Registracija</a></div>
+                <span class="header-link">|</span>
+                <div class="header-link">
+                    <label for="login-popup">Prijava</label>
+                </div>
+                <input type="checkbox" name="login-popup" id="login-popup" style="display: none;"/>
+                <div id="login">
+                    <form method="GET" action="index.html">
+                        <label>Uporabniško ime:<input type="text" name="username" placeholder="Uporabniško ime" pattern=".*" title="Vaše uporabniško ime" required /></label>
+                        <label>Geslo:<input type="password" name="geslo" placeholder="Geslo" required /></label>
+                        <div>
+                            <input class="gumb" type="submit" value="Prijava" />
+                            <label class="gumb" for="login-popup">Prekliči</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </header>
+        <nav>
+            <ul class="centered">
+                <li><a href="index.html">Domov</a></li>
+                <li><a href="seznam-dogodkov.html">Seznam dogodkov</a></li>
+                <li><a href="seznam-zemljevid.html">Zemljevid dogodkov</a></li>
+                <li><a href="nov-dogodek.html">Nov dogodek</a></li>
+            </ul>
+        </nav>
+        <div class="centered" id="nov-dogodek-wrapper">
+            <h1>Nov dogodek</h1>
+            <p>V ta obrazec vnesite vse potrebne informacije o vašem dogodku.</p>
+            <form id="nov-dogodek-form" method="POST" action="index.html">
+                <div>
+                    <label for="username">Ime dogodka</label>
+                    <input id="ime" type="text" name="naslov" placeholder="Ime dogodka" title="Ime dogodka" required />
+                </div>
+                <div id="datum-izvajanja">
+                    <input type="button" name="dodaj" class="gumb" id="dodaj" value="+ Dodaj" onclick="dodajDatum();" />
+                    <datalist id="months">
+                        <option value="Januar">
+                        <option value="Februar">
+                        <option value="Marec">
+                        <option value="April">
+                        <option value="Maj">
+                        <option value="Junij">
+                        <option value="Julij">
+                        <option value="Avgust">
+                        <option value="September">
+                        <option value="Oktober">
+                        <option value="November">
+                        <option value="December">
+                    </datalist>
+                    <div>
+                        <input id="datum-0" type="checkbox" name="izbrisi" />
+                        <span>
+                            <span>
+                                <label>Datum:
+                                    <input id="date" min="1" type="number" name="date" placeholder="Dan"/>
+                                    <input list="months" name="months" placeholder="Mesec"/>
+                                    <input type="number" min="1900" name="year" placeholder="Leto"/>
+                                </label>
+                                <label>Ob:
+                                    <input type="time" name="cas" placeholder="Čas" />
+                                </label>
+                            </span>
+                            <label for="datum-0" class="izbirsi">×</label>
+                        </span>
+                    </div>
+                </div>
+                <div>
+                    <label for="lokacija">Lokacija dogodka</label><input type="text" id="lokacija" name="lokacija" placeholder="Lokacija" title="Lokacija dogodka" required />
+                    <label for="naslov">Naslov</label><input type="text" id="naslov" name="naslov" placeholder="Naslov" required />
+                    <span id="kraj">
+                        <span><label for="kraj">Kraj</label><input type="text" id="kraj" name="kraj" placeholder="Kraj" required /></span>
+                        <span><label for="posta">Poštna št.</label><input type="text" id="posta" name="posta" placeholder="Poštna št." required /></span>
+                    </span>
+                    <div id="map"></div>
+                </div>
+                <div>
+                    <label for="slika">Slika <span class="tiny-text">(ta slika bo prikazana na seznamu dogodkov)</span></label><input type="file" id="slika" name="slika" value="Izberi sliko" />
+                </div>
+                <div style="border:none">
+                    <label for="opis">Opis dogodka <span class="tiny-text">(lahko tudi v obliki HTML)</span></label>
+                    <textarea rows="10" cols="50" id="opis"></textarea>
+                </div>
+                <input class="gumb" type="submit" value="Dodaj dogodek" />
+            </form>
+        </div>
+        <footer>
+			<div class="centered">
+				<p>© 2016, Pravice pridržane | Avtor: Tim Rejc</p>
+			</div>
+		</footer>
+    </body>
+</html>

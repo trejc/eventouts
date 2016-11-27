@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Eventouc</title>
+		<meta charset="utf-8" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&amp;subset=latin-ext" rel="stylesheet">
+		<link rel="stylesheet" href="styles/styles.css" />
+    </head>
+    <body>
+        <header>
+            <div class="centered" id="logo">
+                <a href="index.html"><img src="logo.png" alt="Logotip" /></a>
+                <div class="header-link"><a href="registracija.html">Registracija</a></div>
+                <span class="header-link">|</span>
+                <div class="header-link">
+                    <label for="login-popup">Prijava</label>
+                </div>
+                <input type="checkbox" name="login-popup" id="login-popup" style="display: none;"/>
+                <div id="login">
+                    <form method="POST" action="index.html">
+                        <label>Uporabniško ime:<input type="text" name="username" placeholder="Uporabniško ime" pattern=".*" title="Vaše uporabniško ime" required /></label>
+                        <label>Geslo:<input type="password" name="geslo" placeholder="Geslo" required /></label>
+                        <div>
+                            <input class="gumb" type="submit" value="Prijava" />
+                            <label class="gumb" for="login-popup">Prekliči</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </header>
+        <nav>
+            <ul class="centered">
+                <li><a href="index.html">Domov</a></li>
+                <li><a href="seznam-dogodkov.html">Seznam dogodkov</a></li>
+                <li><a href="seznam-zemljevid.html">Zemljevid dogodkov</a></li>
+                <li><a href="nov-dogodek.html">Nov dogodek</a></li>
+            </ul>
+        </nav>
+        <div class="centered" id="main">
+            <div class="register-form">
+                <h1>Registracija</h1>
+                <p>Izpolnite ta obrazec, če se želite registrirati.</p>
+                <form id="registracija" method="POST" action="index.html">
+                    <label for="username">Uporabniško ime</label><input id="username" type="text" name="username" placeholder="Uporabniško ime" pattern=".*" title="Uporabniško ime" required />
+                    <label for="geslo">Geslo</label><input type="password" id="geslo" name="geslo" placeholder="Geslo" pattern=".*" title="Geslo" required />
+                    <label for="email">Email</label><input type="email" id="email" name="email" placeholder="Email" required />
+                    <label for="date">
+                        Datum rojstva <span class="date-format">(dd/mm/yyyy)</span>
+                    </label>
+                    <div>
+                        <input id="date" min="1" type="number" name="date" placeholder="Dan"/>
+                        <input list="months" name="months" placeholder="Mesec"/>
+                        <input type="number" min="1900" name="year" placeholder="Leto"/>
+                    </div>
+                      <datalist id="months">
+                        <option value="Januar">
+                        <option value="Februar">
+                        <option value="Marec">
+                        <option value="April">
+                        <option value="Maj">
+                        <option value="Junij">
+                        <option value="Julij">
+                        <option value="Avgust">
+                        <option value="September">
+                        <option value="Oktober">
+                        <option value="November">
+                        <option value="December">
+                      </datalist>
+                    <input class="gumb" type="submit" value="Registriraj se" />
+                </form>
+            </div>
+        </div>
+        <footer>
+			<div class="centered">
+				<p>© 2016, Pravice pridržane | Avtor: Tim Rejc</p>
+			</div>
+		</footer>
+    </body>
+</html>

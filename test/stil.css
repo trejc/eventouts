@@ -1,0 +1,84 @@
+.header-link {
+	float:right;
+	clear:right;
+}
+.centered-content {
+	width:960px;
+	margin-left:auto;
+	margin-right:auto;
+}
+header, footer {
+	background-color:green;
+}
+article ul {
+	color:black;
+}
+article > ul  {
+	color:red;
+}
+#meritve ~ li a {
+	font-weight:bold;
+}
+body {
+	margin:0;
+	box-sizing:border-box;
+	display:flex;
+	flex-flow:column;
+	min-height:100vh;
+}
+#main {
+	flex-grow:1;
+	
+	display:flex;
+	background:yellow;
+}
+nav {
+	box-sizing:border-box;
+	border:20px solid black;
+}
+.comment form {
+	width:220px;
+	display:flex;
+	flex-flow:column;
+}
+input[type="checkbox"]~ div {
+	display:none;
+}
+input[type="checkbox"]:checked ~ div,
+#popup:target {
+	display:block;
+	background:red;
+	position:absolute;
+	border:5px black solid;
+	font-size:10px;
+	padding-top:1.5em;
+	padding-bottom:1.5em;
+}
+input[type="checkbox"]:checked + span {
+	color:red;
+}
+input[type="submit"]:target {
+	color:green;
+}
+input[type="submit"]::after {
+	content:"test";
+}
+nav li {
+ float:left;
+}
+#main {
+  flex-flow:column;
+}
+@media screen
+  and (min-width: 414px) {
+    
+}
+@media screen
+  and (min-width: 1024px) {
+    nav li {
+ 	  float:none;
+    }
+	#main {
+		flex-flow:row;
+	}
+}

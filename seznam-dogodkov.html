@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Eventouc</title>
+		<meta charset="utf-8" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&amp;subset=latin-ext" rel="stylesheet">
+		<link rel="stylesheet" href="styles/styles.css" />
+        <script type="text/javascript" src="scripts/koledar.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="centered" id="logo">
+                <a href="index.html"><img src="logo.png" alt="Logotip" /></a>
+                <div class="header-link"><a href="registracija.html">Registracija</a></div>
+                <span class="header-link">|</span>
+                <div class="header-link">
+                    <label for="login-popup">Prijava</label>
+                </div>
+                <input type="checkbox" name="login-popup" id="login-popup" style="display: none;"/>
+                <div id="login">
+                    <form method="POST" action="index.html">
+                        <label>Uporabniško ime:<input type="text" name="username" placeholder="Uporabniško ime" pattern=".*" title="Vaše uporabniško ime" required /></label>
+                        <label>Geslo:<input type="password" name="geslo" placeholder="Geslo" required /></label>
+                        <div>
+                            <input class="gumb" type="submit" value="Prijava" />
+                            <label class="gumb" for="login-popup">Prekliči</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </header>
+        <nav>
+            <ul class="centered">
+                <li><a href="index.html">Domov</a></li>
+                <li><a href="seznam-dogodkov.html">Seznam dogodkov</a></li>
+                <li><a href="seznam-zemljevid.html">Zemljevid dogodkov</a></li>
+                <li><a href="nov-dogodek.html">Nov dogodek</a></li>
+            </ul>
+        </nav>
+        <div class="centered" id="main">
+            <div class="event-list-naslov">
+                <h1>Seznam dogodkov</h1>
+                <div>
+                    <p style="margin: 0 3px 5px 0;">Načina prikaza: </p>
+                    <label for="list-view"><img src="docs/icons/view-list.png" alt=""/></label>
+                    <label for="module-view"><img src="docs/icons/view-module.png" alt=""/></label>
+                </div>
+            </div>
+            <div class="event-list-container">
+                <div class="filter-chooser">
+                    <input checked type="checkbox" name="details-tag" id="sort" />
+                    <input checked type="checkbox" name="details-tag" id="tags" />
+                    <ul class="filter-menu cascade">
+                        <li class="filter-type">
+                            <label for="sort"><span class="expand-arrow"></span>Razvrsti</label>
+                        </li>
+                        <li>
+                            <ul class="sub-tree bottom-tree">
+                                <li>
+                                    <input checked type="radio" name="details-tag" id="filter-datum" />
+                                    <label for="filter-datum"><span class="checkbox-out"><span class="checkbox-in"></span></span>Po datumu</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="details-tag" id="filter-nov" />
+                                    <label for="filter-nov"><span class="checkbox-out"><span class="checkbox-in"></span></span>Najnovejši</label>
+                                </li>
+                                <li>
+                                    <input type="radio" name="details-tag" id="filter-popularen" />
+                                    <label for="filter-popularen"><span class="checkbox-out"><span class="checkbox-in"></span></span>Najbolj popularni</label>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="filter-type">
+                            <label for="tags"><span class="expand-arrow"></span>Zvrsti</label>
+                        </li>
+                        <li>
+                            <ul class="sub-tree cascade">
+                                
+                                <li class="filter">
+                                    <input checked type="checkbox" name="big-tag" id="tag-vsi" />
+                                    <label for="tag-vsi"><span class="checkbox-out"><span class="checkbox-in"></span></span>Vse</label>
+                                </li>
+                                
+                                <li class="filter">
+                                    <input type="checkbox" name="big-tag" id="tag-glasba" />
+                                    <label for="tag-glasba"><span class="checkbox-out"><span class="checkbox-in"></span></span>Glasba</label>
+                                    <label class="expand-label" for="expand-glasba">[Več]</label>
+                                </li>
+                                
+                                <li>
+                                    <input type="checkbox" class="expand" name="expand" id="expand-glasba" />
+                                    <ul class="sub-tree bottom-tree">
+                                        <li>
+                                            <input type="checkbox" name="details-tag" id="tag-hiphop" />
+                                            <label for="tag-hiphop"><span class="checkbox-out"><span class="checkbox-in"></span></span>Hip Hop</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" name="details-tag" id="tag-metal" />
+                                            <label for="tag-metal"><span class="checkbox-out"><span class="checkbox-in"></span></span>Metal</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" name="details-tag" id="tag-narodna" />
+                                            <label for="tag-narodna"><span class="checkbox-out"><span class="checkbox-in"></span></span>Narodnozabavna</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" name="details-tag" id="tag-pop" />
+                                            <label for="tag-pop"><span class="checkbox-out"><span class="checkbox-in"></span></span>Pop</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" name="details-tag" id="tag-rap" />
+                                            <label for="tag-rap"><span class="checkbox-out"><span class="checkbox-in"></span></span>Rap</label>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="filter">
+                                    <input type="checkbox" name="big-tag" id="tag-kultura" />
+                                    <label for="tag-kultura"><span class="checkbox-out"><span class="checkbox-in"></span></span>Kultura</label>
+                                    <label class="expand-label" for="expand-kultura">[Več]</label>
+                                </li>
+                                
+                                <li>
+                                    <input type="checkbox" class="expand" name="expand" id="expand-kultura" />
+                                    <ul class="sub-tree bottom-tree">
+                                        <li>
+                                            <input type="checkbox" name="details-tag" id="tag-gledalisce" />
+                                            <label for="tag-gledalisce"><span class="checkbox-out"><span class="checkbox-in"></span></span>Gledališče</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" name="details-tag" id="tag-opera" />
+                                            <label for="tag-opera"><span class="checkbox-out"><span class="checkbox-in"></span></span>Opera</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" name="details-tag" id="tag-balet" />
+                                            <label for="tag-balet"><span class="checkbox-out"><span class="checkbox-in"></span></span>Balet</label>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="filter">
+                                    <input type="checkbox" name="big-tag" id="tag-sport" />
+                                    <label for="tag-sport"><span class="checkbox-out"><span class="checkbox-in"></span></span>Šport</label>
+                                    <label class="expand-label" for="expand-sport">[Več]</label>
+                                </li>
+                                
+                                <li>
+                                    <input type="checkbox" class="expand" name="expand" id="expand-sport" />
+                                    <ul class="sub-tree bottom-tree">
+                                        <li>
+                                            <input type="checkbox" name="details-tag" id="tag-nogomet" />
+                                            <label for="tag-nogomet"><span class="checkbox-out"><span class="checkbox-in"></span></span>Nogomet</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" name="details-tag" id="tag-kosarka" />
+                                            <label for="tag-kosarka"><span class="checkbox-out"><span class="checkbox-in"></span></span>Košarka</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" name="details-tag" id="tag-odbojka" />
+                                            <label for="tag-odbojka"><span class="checkbox-out"><span class="checkbox-in"></span></span>Odbojka</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" name="details-tag" id="tag-rokomet" />
+                                            <label for="tag-rokomet"><span class="checkbox-out"><span class="checkbox-in"></span></span>Rokomet</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" name="details-tag" id="tag-vaterpolo" />
+                                            <label for="tag-vaterpolo"><span class="checkbox-out"><span class="checkbox-in"></span></span>Vaterpolo</label>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <table id="koledar">
+                        <script>
+                            narisiKoledar();
+                        </script>
+                    </table>
+                </div>
+                <input checked type="radio" name="view" id="list-view" />
+                <input type="radio" name="view" id="module-view" />
+                <div class="event-list">
+                    <div class="event-list-item">
+                        <div class="event-img-wrapper"><a href="#"><img src="docs/images/item-image1.jpg" alt="Awesome picture!" /></a></div>
+                        <div class="event-text-wrapper">
+                            <a href="#"><h4 class="event-naslov">Cartman in Butters</h4></a>
+                            <p class="event-opis">V halo Tivoli prihajata neverjetna Cratman in Butters iz serije South Park. Ne boste verjeli kaj imata za povedati!</p>
+                            <div>
+                                <p class="event-datum">22. 12. 2016</p>
+                                <p class="event-kraj">Hala Tivoli Ljubljana</p>
+                            </div>
+                            <div>
+                                <p class="event-tag">Zvrst: Komedija</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-list-item">
+                        <div class="event-img-wrapper"><a href="#"><img src="docs/images/item-image2.jpg" alt="Awesome picture!" /></a></div>
+                        <div class="event-text-wrapper">
+                            <a href="#"><h4 class="event-naslov">DJ Umek in da' Haus</h4></a>
+                            <p class="event-opis">V nočni klub Cirkus pride legendarni DJ Umek. Ni več na top 100, vendar so njegovi komadi še vedno noro dobri. S seboj prinesite veliko dobrot in hmeljevih semen! Zelo mi je žal.</p>
+                            <div>
+                                <p class="event-datum">2. 12. 2016</p>
+                                <p class="event-kraj">Klub Cirkus Ljubljana</p>
+                            </div>
+                            <div>
+                                <p class="event-tag">Zvrst: EDM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-list-item">
+                        <div class="event-img-wrapper"><a href="#"><img src="docs/images/item-image3.jpg" alt="Awesome picture!" /></a></div>
+                        <div class="event-text-wrapper">
+                            <a href="#"><h4 class="event-naslov">Svet prepiranja</h4></a>
+                            <p class="event-opis">Ali se doma kar naprej prepirate? Dick ass mouth penis crackhole slimy-asswipers</p>
+                            <div>
+                                <p class="event-datum">29. 11. 2016</p>
+                                <p class="event-kraj">Cerkev sv. Matevža</p>
+                            </div>
+                            <div>
+                                <p class="event-tag">Zvrst: Pomiritev</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-list-item">
+                        <div class="event-img-wrapper"><a href="#"><img src="docs/images/item-image1.jpg" alt="Awesome picture!" /></a></div>
+                        <div class="event-text-wrapper">
+                            <a href="#"><h4 class="event-naslov">Cartman in Butters</h4></a>
+                            <p class="event-opis">V halo Tivoli prihajata neverjetna Cratman in Butters iz serije South Park. Ne boste verjeli kaj imata za povedati!</p>
+                            <div>
+                                <p class="event-datum">22. 12. 2016</p>
+                                <p class="event-kraj">Hala Tivoli Ljubljana</p>
+                            </div>
+                            <div>
+                                <p class="event-tag">Zvrst: Komedija</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-list-item">
+                        <div class="event-img-wrapper"><a href="#"><img src="docs/images/item-image2.jpg" alt="Awesome picture!" /></a></div>
+                        <div class="event-text-wrapper">
+                            <a href="#"><h4 class="event-naslov">DJ Umek in da' Haus</h4></a>
+                            <p class="event-opis">V nočni klub Cirkus pride legendarni DJ Umek. Ni več na top 100, vendar so njegovi komadi še vedno noro dobri. S seboj prinesite veliko dobrot in hmeljevih semen! Zelo mi je žal.</p>
+                            <div>
+                                <p class="event-datum">2. 12. 2016</p>
+                                <p class="event-kraj">Klub Cirkus Ljubljana</p>
+                            </div>
+                            <div>
+                                <p class="event-tag">Zvrst: EDM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+			<div class="centered">
+				<p>© 2016, Pravice pridržane | Avtor: Tim Rejc</p>
+			</div>
+		</footer>
+    </body>
+</html>
